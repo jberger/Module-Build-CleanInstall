@@ -1,0 +1,1 @@
+A Subclass of Module::Build which first will attempt to uninstall a module (and all its files) before installing a new version
