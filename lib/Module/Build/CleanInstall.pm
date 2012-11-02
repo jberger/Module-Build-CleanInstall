@@ -4,19 +4,38 @@ use strict;
 use warnings;
 
 use parent 'Module::Build';
-use ExtUtils::Install qw/uninstall/;
 use ExtUtils::Installed;
 
-sub ACTION_install {
+sub ACTION_uninstall {
   my $self = shift;
   my $module = $self->module_name;
 
-  my $installed = ExtUtils::Installed->new;
-  if ( my $packlist = eval { $installed->packlist($module)->packlist_file } ) {
-    uninstall($packlist);
+  if ( my $packlist = $self->_get_packlist($module) ) {
+    print "Removing old copy of $module\n";
+    $self->_uninstall($packlist);
   }
+}
 
+sub ACTION_install {
+  my $self = shift;
+  $self->depends_on('uninstall');
   $self->SUPER::ACTION_install;
 }
 
+sub _get_packlist {
+  my $self = shift;
+  my ($module) = @_;
 
+  my $installed = ExtUtils::Installed->new;
+  my $packlist = eval { $installed->packlist($module)->packlist_file };
+
+  return $packlist || '';
+}
+
+sub _uninstall {
+  my $self = shift;
+  my ($packlist, $dont_execute) = @_;
+
+  require ExtUtils::Install;
+  ExtUtils::Install::uninstall( $packlist, 1, !!$dont_execute );
+}
