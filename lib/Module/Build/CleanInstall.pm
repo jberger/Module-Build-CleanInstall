@@ -39,3 +39,6 @@ sub _uninstall {
   require ExtUtils::Install;
   ExtUtils::Install::uninstall( $packlist, 1, !!$dont_execute );
 }
+
+1;
+

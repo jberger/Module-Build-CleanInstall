@@ -15,6 +15,9 @@ my $builder = Module::Build->new(
     'parent'           => 0,
     'Module::Build'    => 0.36,
   },
+  test_requires => {
+    'List::MoreUtils'  => 0,   # used as target for testing packlists
+  },
   meta_merge => {
     resources  => {
       repository => "http://github.com/jberger/Module-Build-CleanInstall",
