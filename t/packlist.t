@@ -28,10 +28,9 @@ my $unlink_attempted = 0;
     my $self = shift;
     my ($print) = @_;
 
-    return unless $print =~ /unlink (.*)/;
+    $unlink_attempted++ $print =~ /unlink (.*)/;
 
-    $unlink_attempted++;
-    Test::More::ok( -e $1, "simulate unlinking file $1" );
+    print STDOUT $print;
   }
 }
 
