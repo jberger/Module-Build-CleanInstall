@@ -1,7 +1,8 @@
 Build.PL
+Changes
 lib/Module/Build/CleanInstall.pm
 MANIFEST			This list of files
+META.json
+META.yml
 README.pod
 t/packlist.t
-META.yml
-META.json
