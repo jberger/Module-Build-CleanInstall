@@ -1,50 +1,3 @@
-package Module::Build::CleanInstall;
-
-use strict;
-use warnings;
-
-our $VERSION = '0.01';
-$VERSION = eval $VERSION;
-
-use parent 'Module::Build';
-use ExtUtils::Installed;
-
-sub ACTION_uninstall {
-  my $self = shift;
-  my $module = $self->module_name;
-
-  if ( my $packlist = $self->_get_packlist($module) ) {
-    print "Removing old copy of $module\n";
-    $self->_uninstall($packlist);
-  }
-}
-
-sub ACTION_install {
-  my $self = shift;
-  $self->depends_on('uninstall');
-  $self->SUPER::ACTION_install;
-}
-
-sub _get_packlist {
-  my $self = shift;
-  my ($module) = @_;
-
-  my $installed = ExtUtils::Installed->new;
-  my $packlist = eval { $installed->packlist($module)->packlist_file };
-
-  return $packlist || '';
-}
-
-sub _uninstall {
-  my $self = shift;
-  my ($packlist, $dont_execute) = @_;
-
-  require ExtUtils::Install;
-  ExtUtils::Install::uninstall( $packlist, 1, !!$dont_execute );
-}
-
-1;
-
 =head1 NAME
 
 Module::Build::CleanInstall - Subclass of Module::Build which removes the old module before installing the new one
@@ -93,4 +46,3 @@ Copyright (C) 2012 by Joel Berger
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.
 
-=cut
