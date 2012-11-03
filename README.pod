@@ -19,7 +19,7 @@ L<Module::Build::CleanInstall> is a subclass of L<Module::Build> with one additi
 
 Since it is a subclass of L<Module::Build> it is used exactly like that module. This module does provide an additional action C<uninstall>, but it need not be called separately; the action C<install> will call it when invoked.
 
-The uninstalling is done by removing the files in the installed module's C<packlist|ExtUtils::Packlist> which is created when the module is first installed.
+The uninstalling is done by removing the files in the installed module's L<packlist|ExtUtils::Packlist> which is created when the module is first installed.
 
 =head1 SEE ALSO
 
