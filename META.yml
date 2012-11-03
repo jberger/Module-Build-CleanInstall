@@ -2,7 +2,8 @@
 abstract: 'Subclass of Module::Build which removes the old module before installing the new one'
 author:
   - 'Joel A. Berger <joel.a.berger@gmail.com>'
-build_requires: {}
+build_requires:
+  List::MoreUtils: 0
 configure_requires:
   Module::Build: 0.36
 dynamic_config: 1
@@ -21,7 +22,7 @@ no_index:
 provides:
   Module::Build::CleanInstall:
     file: lib/Module/Build/CleanInstall.pm
-    version: 0.01
+    version: 0.02
 requires:
   Module::Build: 0.36
   parent: 0
@@ -30,4 +31,4 @@ resources:
   bugtracker: http://github.com/jberger/Module-Build-CleanInstall/issues
   license: http://dev.perl.org/licenses/
   repository: http://github.com/jberger/Module-Build-CleanInstall
-version: 0.01
+version: 0.02
