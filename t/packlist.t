@@ -28,7 +28,7 @@ my $unlink_attempted = 0;
     my $self = shift;
     my ($print) = @_;
 
-    $unlink_attempted++ $print =~ /unlink (.*)/;
+    $unlink_attempted++ if $print =~ /unlink (.*)/;
 
     print STDOUT $print;
   }
