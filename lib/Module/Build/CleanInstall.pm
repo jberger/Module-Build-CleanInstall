@@ -3,7 +3,7 @@ package Module::Build::CleanInstall;
 use strict;
 use warnings;
 
-our $VERSION = '0.03';
+our $VERSION = '0.05';
 $VERSION = eval $VERSION;
 
 use parent 'Module::Build';

@@ -22,7 +22,7 @@ no_index:
 provides:
   Module::Build::CleanInstall:
     file: lib/Module/Build/CleanInstall.pm
-    version: 0.03
+    version: 0.05
 requires:
   Module::Build: 0.36
   parent: 0
@@ -31,4 +31,4 @@ resources:
   bugtracker: http://github.com/jberger/Module-Build-CleanInstall/issues
   license: http://dev.perl.org/licenses/
   repository: http://github.com/jberger/Module-Build-CleanInstall
-version: 0.03
+version: 0.05
