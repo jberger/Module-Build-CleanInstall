@@ -5,6 +5,11 @@ use Test::More;
 
 use Module::Build::CleanInstall;
 
+# some CPANtesters use a fresh and not installed version of all dependent modules
+if (grep { m#List-MoreUtils.*?blib# } @INC) {
+  plan skip_all => "Test irrelevant when not using an installed version of List::MoreUtils";
+}
+
 my $packlist = Module::Build::CleanInstall->_get_packlist('List::MoreUtils');
 ok ($packlist, 'Found packlist for List::MoreUtils');
 
