@@ -39,6 +39,10 @@ L<http://github.com/jberger/Module-Build-CleanInstall>
 
 Joel Berger, E<lt>joel.a.berger@gmail.comE<gt>
 
+=head1 ADDITIONAL CONTRIBUTIONS
+
+Randall Sindlinger, E<lt>rsindlin@gmail.comE<gt>
+
 =head1 COPYRIGHT AND LICENSE
 
 Copyright (C) 2012 by Joel Berger
